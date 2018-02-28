@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="misao.edu.hinduquiz.ResultActivity">
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="46dp"
+        android:textStyle="bold"
+        android:text="@string/score_label"
+        android:background="@drawable/answer_button"
+        android:textColor="@color/colorWhite"
+        android:layout_margin="3dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="aaa"
+        android:gravity="center"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="54dp"
+        android:textStyle="bold"
+        android:layout_margin="1dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_god"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_margin="3dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="aaa"
+        android:gravity="center"
+        android:textColor="@color/colorDarkGreen"
+        android:textSize="34dp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/btnReplay"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/reply_button"
+        android:textSize="42dp"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:layout_margin="3dp"
+        android:background="@drawable/answer_button"/>
+
+
+</LinearLayout>

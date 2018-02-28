@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HInduQuiz</string>
+
+    <string name="description">picture</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_my_result">MyResult</string>
+
+    <string name="next_button">▶▶▶Next Question</string>
+    <string name="score_label">Your Score</string>
+    <string name="question_label">What is my name?</string>
+    <string name="reply_button">▶REPLAY</string>
+    <string name="start_button">▶START</string>
+
+
+</resources>
