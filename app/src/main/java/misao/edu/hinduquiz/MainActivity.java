@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     Vibrator vibrator;
 
-    SoundPool soundPool;
-    int startSound;
-
     Random r;
     int turn = 1;
     int rightAnswers = 0;
@@ -66,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         b_answer2 = findViewById( R.id.b_answer2 );
         b_answer3 = findViewById( R.id.b_answer3 );
         b_answer4 = findViewById( R.id.b_answer4 );
+
+        Intent intent = getIntent();
+        int position = intent.getExtras(  ).getInt( "quiz",0 );
 
         list = new ArrayList<>();
 
@@ -441,10 +441,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void questiontitle(){
-        q_tv.setText( "Q." + count );
-        count ++;
-    }
+//    public void questiontitle(){
+//        q_tv.setText( "Q." + count );
+//        count ++;
+//    }
 
 
     public void getResults(){
@@ -456,12 +456,6 @@ public class MainActivity extends AppCompatActivity {
 }
 
 
+//HOMEからリストactivityへIntent　→　時間あればexpをDATAベースへ登録してTitleActivityに詳細画面を表示
 
-
-//タブ作ってリストビュー　→　できない →　ボタンで直にリストビュー　→　時間があればもう一回試す(詳細はいらないリストだけ)
-//音 →　1問目だけ、noだめ　→　いらない
 //多言語化できない(databaseだから)　→　英語にする
-
-
-//List view can not be displayed. I would like to use database if possible.
-//I want to localize data in database.

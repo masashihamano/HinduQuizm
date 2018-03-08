@@ -10,11 +10,13 @@
 
     <TextView
         android:id="@+id/selected_text"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textColor="#000"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         />
 
     <ImageView
@@ -23,6 +25,18 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/description"
         android:scaleType="fitCenter"
+        android:layout_weight="8"
+        />
+
+    <TextView
+        android:id="@+id/selected_exp"
+        android:textSize="15dp"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         />
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HInduQuiz</string>
+    <string name="app_name">Hindu Quizm</string>
 
     <string name="description">picture</string>
     <string name="action_settings">Settings</string>
@@ -10,6 +10,7 @@
     <string name="question_label">What is my name?</string>
     <string name="reply_button">▶REPLAY</string>
     <string name="start_button">▶START</string>
+    <string name="list_button">≡ LIST</string>
 
 
 </resources>

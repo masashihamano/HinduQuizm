@@ -14,7 +14,7 @@ import android.widget.ImageView;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageView imageView;
-    Button btnStart;
+    Button btnStart, btnList;
 
     SoundPool soundPool;
     int startSound;
@@ -26,8 +26,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         imageView = findViewById( R.id.iv_home );
         btnStart = findViewById( R.id.btnStart );
+        btnList = findViewById( R.id.btnList );
 
         btnStart.setOnClickListener( this );
+        btnList.setOnClickListener( this );
 
         imageView.setImageResource( R.drawable.home );
 
@@ -40,9 +42,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 //        onResume();
 //        onPause();
 
-        Intent intent = new Intent( HomeActivity.this,MainActivity.class );
-        startActivity( intent );
+        switch (view.getId() ){
+            case R.id.btnStart:
+                Intent intent = new Intent( HomeActivity.this,MainActivity.class );
+                intent.putExtra( "quiz",1000);
+                startActivity( intent );
+            break;
+
+            case R.id.btnList:
+                Intent intent1 = new Intent( HomeActivity.this,ListActivity.class );
+                intent1.putExtra( "list",1000 );
+                startActivity( intent1 );
+            break;
+        }
+
     }
+
+
+
 
 
     protected void onResume(){

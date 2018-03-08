@@ -1,121 +1,71 @@
 package misao.edu.hinduquiz;
 
-import android.app.LauncherActivity;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by masashihamano on 2018/02/28.
  */
 
-public class ListAdapter extends BaseAdapter {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
-    static class ViewHolder{
-        TextView textView;
-        ImageView imageView;
-    }
-
-    private LayoutInflater inflater;
-    private int itemLayoutId;
-    private String[] titles;
-    private int[]ids;
-
-    ListAdapter(Context context, int itemLayoutId, String[]names, int[]photos ){
-
-        super();
-        this.inflater = (LayoutInflater)context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        this.itemLayoutId = itemLayoutId;
-        this.titles = names;
-        this.ids = photos;
+    ArrayList godNames;
+    ArrayList godImages;
+    Context context;
+    public ListAdapter(Context context, ArrayList godNames, ArrayList godImages) {
+        this.context = context;
+        this.godNames = godNames;
+        this.godImages = godImages;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        // 最初だけ View を inflate して、それを再利用する
-        if (convertView == null) {
-            // activity_main.xml に list.xml を inflate して convertView とする
-            convertView = inflater.inflate(itemLayoutId, parent, false);
-            // ViewHolder を生成
-            holder = new ViewHolder();
-            holder.textView = convertView.findViewById(R.id.name);
-            holder.imageView = convertView.findViewById(R.id.icon);
-            convertView.setTag(holder);
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        MyViewHolder vh = new MyViewHolder(v);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+
+        holder.name.setText( (CharSequence) godNames.get(position) );
+        holder.image.setImageResource( (Integer) godImages.get(position) );
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(context, (CharSequence) godNames.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return godNames.size();
+    }
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        TextView name;
+        ImageView image;
+
+        public MyViewHolder(View itemView) {
+            super( itemView );
+
+            name = (TextView) itemView.findViewById(R.id.name);
+            image = (ImageView) itemView.findViewById(R.id.image);
         }
-        // holder を使って再利用
-        else
-        {
-            holder = (ViewHolder) convertView.getTag();
-        }
-        // holder の imageView にセット
-        holder.imageView.setImageResource(ids[position]);
-        // 現在の position にあるファイル名リストを holder の textView にセット
-        holder.textView.setText(titles[position]);
-
-        return convertView;
-    }
-
-    @Override
-    public int getCount() {
-        // texts 配列の要素数
-        return titles.length;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
     }
 
 }
 
-
-
-//    private int mResource;
-//    private List<ListItem> mItems;
-//    private LayoutInflater mInflater;
-//
-//    public ListAdapter(Context context, int resource, List<ListItem> items) {
-//        super(context, resource, items);
-//
-//        mResource = resource;
-//        mItems = items;
-//        mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        View view;
-//
-//        if (convertView != null){
-//            view = convertView;
-//        }
-//        else{
-//            view = mInflater.inflate( mResource,null );
-//        }
-//
-//        ListItem item = mItems.get( position );
-//
-//        ImageView thumbnail = (ImageView)view.findViewById( R.id.thumbnail );
-//        thumbnail.setImageBitmap( item.getThumbnail() );
-//
-//        TextView title = (TextView)view.findViewById( R.id.title );
-//        title.setText( item.getTitle() );
-//
-//        return view;
-//    }
-//
-//}

@@ -24,6 +24,7 @@ public class TitleActivity extends AppCompatActivity {
         setContentView( R.layout.activity_title );
 
         Intent intent = getIntent();
+
         String selectedText = intent.getStringExtra("Text");
         int selectedPhoto = intent.getIntExtra("Photo", 0);
 
@@ -36,41 +37,3 @@ public class TitleActivity extends AppCompatActivity {
 }
 
 
-
-
-
-//        sectionsPagerAdapter = new SectionsPagerAdapter( getSupportFragmentManager() );
-//
-//        BottomNavigationView bottomNavigationView = findViewById( R.id.bottom_Nav_View_Bar );
-//        BottomNavigationViewHelper.disableShiftMode( bottomNavigationView );
-//        Menu menu = bottomNavigationView.getMenu();
-//        MenuItem menuItem = menu.getItem( 0 );
-//        menuItem.setChecked( true );
-//
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener( new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//
-//
-//
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//
-//                switch (item.getItemId())
-//                {
-//                    case R.drawable.ic_quiz:
-//                        Intent intent =new Intent( TitleActivity.this,MainActivity.class );
-//                        startActivity( intent );
-//                        break;
-//                    case R.drawable.ic_list:
-//                        Intent intent1 = new Intent( TitleActivity.this, ListActivity.class );
-//                        startActivity( intent1 );
-//                        break;
-//                }
-//                return false;
-//            }
-//        } );
-//
-//    }
-//
-//
-//}
